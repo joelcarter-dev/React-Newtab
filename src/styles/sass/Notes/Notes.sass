@@ -1,0 +1,47 @@
+@import "./_Editor"
+@import "./_Sidebar"
+@import "./_FileHeader"
+
+$notes-topbar-height: 60px
+
+#Notes
+  background-color: #131a21
+  margin: 0
+  padding: 0
+  height: 100vh
+  width: 100vw
+
+  #editor-holder
+    display: inline-block
+    width: 100%
+    height: calc(100vh - 56px)
+  #Sidebar
+    float: left
+    transition: all .3s linear
+    .folder-list-holder, .sidebar-top
+      transition: all .3s linear
+  .SidebarOpen
+    width: 20%
+    min-width: 200px
+    max-width: 250px
+    height: 100%
+    .folder-list-holder, .sidebar-top
+      margin: 0 auto
+      display: block
+      opacity: 1
+  .SidebarHidden
+    width: 0px
+    height: 100%
+    .folder-list-holder, .sidebar-top
+      margin-top: 30px
+      opacity: 0
+      visibility: hidden
+  #Editor
+    float: right
+    height: 100%
+    transition: all .5s linear
+  .editorFullWidth
+    width: 80%
+    min-width: calc(100% - 250px)
+  .editorQuarterWidth
+    width: 100%

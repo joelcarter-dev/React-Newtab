@@ -1,0 +1,116 @@
+
+.folder-list-holder, .file-list-holder
+  
+  #folder-list
+    margin: 0 auto
+    padding: 0
+    .dummy-holder
+      width: 100%
+      height: 60px
+      list-style: none
+      cursor: pointer
+      padding: 0px
+      margin: 0 auto
+      display: inline-block
+      form
+        width: 100%
+        height: 60px
+        display: inline-flex
+        +flex-center()
+        input
+          border: none
+          width: 65%
+          margin: 0 auto
+          background-color: transparent
+          color: white
+          font-size: 15px
+    
+  .folder-holder
+    height: auto
+    
+  .folder-open
+    height: auto
+    .folder-name
+      width: calc(100% - 40px) !important
+    .file-list-holder
+      ul
+        height: auto
+      li
+        display: block
+          
+  .folder-closed
+    height: 60px
+    .file-list-holder
+      ul
+        height: 0px
+      li
+        height: 0px
+        display: none
+  li
+    width: 100%
+    height: 60px
+    list-style: none
+    cursor: pointer
+    padding: 0px
+    margin: 0 auto
+    display: inline-block
+    *
+      transition: all .2s ease-in-out
+        
+  .folder-item
+    display: inline-block
+    overflow: hidden
+    width: 100%
+    height: 60px
+    &:hover 
+      height: 80px
+      .folder-open, .folder-closed
+        height: 60px
+      .folder-buttons
+        display: flex
+        height: 30px
+      .folder-name
+        width: calc(100% - 40px)  
+      .folder-meta
+        width: 40px
+    .add-file
+      font-size: 40px
+      text-align: center
+    .folder-name
+      display: inline-flex
+      +flex-center()
+      width: 100%
+      height: 60px
+      color: color(full-white)
+      font-size: 16px
+      text-transform: capitalize
+      word-break: break-all
+    .folder-buttons
+      display: none
+      width: 100%
+      height: 0
+      margin-top: -10px
+      .folder-meta
+        width: 0px
+        height: 30px
+        display: flex
+        margin-top: -5px
+        position: relative
+        .no-files, .no-tags
+          position: absolute
+          height: 15px
+          width: 40px
+          font-size: 11px
+        .no-files
+          top: 0
+        .no-tags
+          bottom: 0
+      div
+        display: inline-flex
+        margin: 0 auto
+        span
+          width: 30px
+          height: 30px
+          text-align: center
+          cursor: pointer
+          color: color(light-white)

@@ -1,0 +1,35 @@
+#backArrow
+  width: 100%
+  //height: 60px
+  position: fixed
+  top: 0
+  *
+    margin: 20px
+    opacity: 0
+    transition: all .2s linear
+  #arrow
+    width: 15px
+    height: 15px
+    display: block
+    border-top: 1px solid color(light-white)
+    border-left: 1px solid color(light-white)
+    transform: rotate(315deg)
+    transition: all .2s ease-in-out
+    &:hover
+      border-top: 1px solid color(full-white)
+      border-left: 1px solid color(full-white)
+
+.Arrow
+  position: relative
+  margin: 10px
+  width: 15px
+  height: 15px
+  display: block
+  border-top: 1px solid color(light-white)
+  border-left: 1px solid color(light-white)
+  transform: rotate(315deg)
+  transition: all .2s ease-in-out
+  cursor: pointer
+  &:hover
+    border-top: 1px solid color(full-white)
+    border-left: 1px solid color(full-white)

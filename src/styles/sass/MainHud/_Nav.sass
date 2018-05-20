@@ -1,0 +1,36 @@
+$link-height: 60px
+
+.nav-holder
+  height: 100%
+  position: relative
+  .nav-grid
+    height: $link-height * 2
+    width: 100%
+    position: absolute
+    left: 0
+    right: 0
+    #second-last
+      border: none
+    .link-box
+      width: 200px
+      height: $link-height
+      display: inline-block
+      margin: 0 auto
+      padding: 0
+      border-right: 1px solid rgba(white, .10)
+      &:last-child
+        border: none
+      .link
+        margin: 0 auto
+        padding: 0
+        width: 100%
+        height: 100%
+        text-decoration: none
+        display: inline-flex
+        align-items: center
+        justify-content: center
+        color: color(light-white)
+        font-weight: 100
+        &:hover
+          color: color(full-white)
+    

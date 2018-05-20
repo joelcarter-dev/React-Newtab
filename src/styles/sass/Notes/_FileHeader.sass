@@ -1,0 +1,75 @@
+#FileHeader
+  width: 100%
+  height: 60px
+  display: flex
+  *
+    transition: all .2s ease-in-out
+  #backArrow
+    width: 20%
+    height: 60px
+    min-width: 200px
+    max-width: 250px
+    position: relative
+    &:hover
+      *
+        opacity: 1
+    #arrow
+      width: 15px
+      height: 15px
+      display: block
+      border-top: 1px solid color(light-white)
+      border-left: 1px solid color(light-white)
+      transform: rotate(315deg)
+      &:hover
+        border-top: 1px solid color(full-white)
+        border-left: 1px solid color(full-white)
+  .holder
+    position: relative
+    float: right
+    width: 80%
+    height: 60px
+    display: inline-flex
+    +flex-center()
+    &:hover
+      .folderData
+        width: 20%
+        #formFolder, .tagList
+          display: block
+    .close
+      padding: 10px
+      font-size: 20px
+      position: absolute
+      left: 0px
+    .namdeData
+      padding: 10px
+      width: 200px
+      height: 60px
+      box-sizing: border-box
+      display: inline-flex
+      +flex-center()
+      span
+        display: block
+        text-align: center
+        text-transform: capitalize
+        width: 100%
+        font-size: 20px
+    .folderData
+      height: 60px
+      width: 0px
+      display: flex
+      +flex-center()
+      position: relative
+      #formFolder, .tagList
+        display: none
+        position: absolute 
+        height: 30px
+        margin: 10px
+        text-transform: capitalize
+      #formFolder
+        top: 0
+        width: 100%
+      .tagList
+        margin-top: 20px
+        .tag
+          bottom: 0
+          padding: 10px

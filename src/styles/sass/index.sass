@@ -1,0 +1,31 @@
+//sass --sourcemap=none --watch src/styles/sass:src/styles/css --style compressed
+@import "vars/_colors"
+@import "vars/_mixins"
+
+// all component sass files but be imported here
+// to have mixin scope and be apart of the "main" 
+// css file
+@import "MainHud/MainHud"
+@import "Notes/Notes"
+@import "Common/BackArrow"
+//@import "./Recent"
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:100')
+
+html, body, .root
+  padding: 0
+  margin: 0 auto
+  user-select: none
+  font-family: 'Montserrat', sans-serif
+  overflow: hidden
+  width: 100%
+  height: 100%
+  color: color(full-white)
+    
+input:focus
+  outline: none
+  caret-color: color(lime-glow)
+  color: color(full-white)
+
+::-webkit-scrollbar
+  width: 0px

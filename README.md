@@ -1,2 +1,1 @@
-# React-Newtab
-A new tab chrome extension
+# Testing-with-react

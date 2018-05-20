@@ -1,0 +1,79 @@
+@import "./_Nav"
+@import "./_Todo"
+@import "./_Search"
+
+@import "bourbon/bourbon"
+
+.MainHud-bg
+  text-align: center
+  width: 100%
+  height: 100vh
+  background-position: center
+  background-size: cover
+  //filter: grayscale(0.7)
+  
+.date-time
+  width: 100%
+  display: inline-block
+  #time, #date
+    width: auto
+    padding: 20px
+    text-align: center
+    color: color(light-white)
+    
+#date
+  float: left
+  
+#time
+  float: right
+    
+#mainhud-overlay
+  background-color: rgba(black, .60)
+  height: 100vh
+  width: 100%
+  
+#left-section
+  width: 25%
+  height: 80vh
+  float: left
+  
+#right-section
+  width: 25%
+  height: 80vh
+  float: right
+  
+#mid-section
+  width: 50%
+  height: 100vh
+  position: relative
+  overflow-y: scroll
+  overflow-x: hidden
+  top: -62px
+  bottom: 0
+  flex-direction: row
+  justify-content: space-between
+  & > div
+    height: calc(100% / 2)
+    margin: 0
+    display: block
+  #search
+    padding-top: 100px
+    border-top: 1px solid rgba(white, .10)
+    border-bottom: 1px solid rgba(white, .10)
+  #nav
+    height: 122px !important
+  
+// ::-webkit-scrollbar
+//   width: 0px
+
+// /* Track */
+// ::-webkit-scrollbar-track 
+//   background: rgba(black, 0)
+ 
+// /* Handle */
+// ::-webkit-scrollbar-thumb 
+//   background: rgba(black, 0)
+    
+// /* Handle on hover */
+// ::-webkit-scrollbar-thumb:hover
+//   opacify: 0

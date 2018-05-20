@@ -1,0 +1,17 @@
+@import "./_colors";
+
+@function color($color-name) {
+  @return var(--color-#{$color-name});
+}
+  
+:root {
+  // // each item in color map
+  @each $name, $color in $main-colors {
+    --color-#{$name}: #{$color};
+  }
+}
+
+@mixin flex-center() {
+  align-items: center;
+  justify-content: center;
+}
