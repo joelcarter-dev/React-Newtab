@@ -83,7 +83,7 @@ export default class CustomEditor extends Component {
     this.props.sendState(this.makeRaw(editorState));
   };
   
-  componentDidUpdate(prevProps) {
+  componentDidUpdate(prevProps) { 
     if (
         prevProps.currentFolder !== this.props.currentFolder ||
         prevProps.currentFileIdx !== this.props.currentFileIdx) {
@@ -96,6 +96,7 @@ export default class CustomEditor extends Component {
       
       //if currentFolder has more than 0 files
       } else if (
+        //0 counts as a number, this could be whats stopping the first item form updating
         this.props.currentFolder.fileList.length > 0 && 
         this.props.currentFileIdx !== null &&
         this.props.currentFolder.fileList[this.props.currentFileIdx].fileEditorState !== undefined
@@ -112,15 +113,15 @@ export default class CustomEditor extends Component {
     }
   }
   
-  makeRaw = (input) =>{
+  makeRaw = (input) => {
     const rawEditor = convertToRaw(input.getCurrentContent())
     return rawEditor
   }
   
-  deselect = () => {
-    this.setState({editorState: createEditorStateWithText("no file selected")});
-    this.props.sendState(this.makeRaw(createEditorStateWithText("no file selected")));
-  }
+  // deselect = () => {
+  //   this.setState({editorState: createEditorStateWithText("no file selected")});
+  //   this.props.sendState(this.makeRaw(createEditorStateWithText("no file selected")));
+  // }
   
   componentDidMount() {
     this.props.sendEmptyEidtorState(this.makeRaw(createEditorStateWithText("empty file")));
@@ -135,6 +136,7 @@ export default class CustomEditor extends Component {
       <div className={editorStyles.editor} onClick={this.focus}>
         <Toolbar />
         <Editor
+          textAlignment = 'center'
           editorState={this.state.editorState}
           onChange={this.onChange}
           plugins={plugins}
@@ -146,9 +148,11 @@ export default class CustomEditor extends Component {
   }
 }
 
-//selecting the right file: WORKING
+//maybe adding a folder and adding text to it could act as a file without it being in a folder.
+//in other words, maybe folders can act as files, with text but can also hold files
 
-//BUG: the current editor of a selected file is passed on to other files in other folders somehow
-//it seemed to pass on the state to every file but the last file in the last folder
+//BUG local storage does not save the last added file
 
-//error happends if you select a file but do not select its folder first
+//BUG there is nothing handling if two files are open but both are in a separet folder
+
+//SEEMS TO BE FIXED error happends if you select a file but do not select its folder first

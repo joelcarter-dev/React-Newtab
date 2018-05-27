@@ -13,6 +13,7 @@ export class Sidebar extends Component {
     this.getFolder = this.getFolder.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.selectItem = this.selectItem.bind(this);
+    this.closeNotOpenFiles = this.closeNotOpenFiles.bind(this);
     this.state = {
       folders: this.getFolder(),
       formInput: "",
@@ -88,7 +89,8 @@ export class Sidebar extends Component {
     return open
   }
 
-  selectItem(idx) {
+  selectItem(idx, e) {
+    e.stopPropagation()
     let folders = this.state.folders
     if (folders[idx] !== undefined) {
       this.returnSelected( folders[idx].open =! folders[idx].open );
@@ -99,9 +101,27 @@ export class Sidebar extends Component {
     }
   }
   
+  closeNotOpenFiles() {
+    //make only one file open out of all folders files
+    let folders = this.state.folders
+    for (let i = 0; i < folders.length; i++) {
+      
+      // folders[i].fileList.map((files, idx)=> {
+      //   if (files[idx] !== this.props.currentFileIdx) {
+      //     console.log(files[i])
+      //     // files[idx].open = false
+      //     // console.log("file " + files[idx] + "'s open is" + files[idx].open);
+      //   }
+      // });
+    }
+  }
+  
   componentDidUpdate(prevProps) {
     if (prevProps.isHidden !== this.props.isHidden) {
       this.setState({isHidden: this.props.isHidden});
+    }
+    if (prevProps.currentEditorState !== this.props.currentEditorState) {
+      this.setLocalStorage()
     }
   }
   
@@ -138,11 +158,14 @@ export class Sidebar extends Component {
                       key={folder.key}
                       delete={this.deleteFolder.bind(this, idx)}
                       folderData={folder}
-                      setLocalStorage={this.setLocalStorage}
+                      //setLocalStorage={this.setLocalStorage}
                       currentFolder={context.currentFolder}
-                      sendSelectedData={context.getSelectedData}
+                      sendSelectedData={context.sendSelectedData}
+                      //sendEditorState={context.sendEditorState}
+                      closeNotOpenFiles={this.closeNotOpenFiles}
                       
                       newEditorState={context.newEditorState}
+                      currentFileIdx={context.currentFileIdx}
                       emptyEditor={context.emptyEditor}
                     />
                   )}}

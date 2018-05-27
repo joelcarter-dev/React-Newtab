@@ -1,10 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// componentDidUpdate(prevProps) {
-//  if ( prevProps.fileData !== this.props.currentFileIdx ) {
- 
-//  } 
-// }
 
 export const FileHeader = (props) => {
   return (
@@ -25,7 +20,7 @@ export const FileHeader = (props) => {
         {props.currentFolder !== null && 
           props.currentFolder.fileList !== undefined &&
           props.currentFileIdx !== null &&
-          <div className="namdeData">
+          <div className="nameData">
             <span>{props.currentFolder.fileList[props.currentFileIdx].name}</span>
           </div>
         }

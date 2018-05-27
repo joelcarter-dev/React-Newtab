@@ -4,7 +4,7 @@
   import Sidebar from '../components/Notes/Sidebar';
   import FileHeader from '../components/Notes/FileHeader';
   
-  //UP TO DATE
+  //UP TO DATE 2
 
   export const NoteContext = React.createContext("placeholderEditorState");
 
@@ -75,11 +75,13 @@
               currentFileIdx: this.state.currentFileIdx,
               currentFolder: this.state.currentFolder,
               emptyEditor: this.state.emptyEditor,
-              //get data for notes via callback
-              getSelectedData: this.getSelectedData
+              //get data via callback
+              sendSelectedData: this.getSelectedData,
+              sendEditorState: this.getEditorState
             }}
             >
-              <Sidebar 
+              <Sidebar
+                currentFileIdx={this.state.currentFileIdx}
                 currentEditorState={this.state.currentEditor} 
                 sendSelectedData={this.getSelectedData}
                 isHidden={this.state.sidebarHidden}

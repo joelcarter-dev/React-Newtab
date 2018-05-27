@@ -9,7 +9,6 @@
     height: 60px
     min-width: 200px
     max-width: 250px
-    position: relative
     &:hover
       *
         opacity: 1
@@ -24,25 +23,23 @@
         border-top: 1px solid color(full-white)
         border-left: 1px solid color(full-white)
   .holder
-    position: relative
-    float: right
-    width: 80%
+    width: calc(100% - 250px)
+    margin-left: 250px
     height: 60px
     display: inline-flex
-    +flex-center()
+    align-items: center
     &:hover
       .folderData
-        width: 20%
-        #formFolder, .tagList
-          display: block
+        opacity: 1
+      .nameData
+        margin-right: 30px
     .close
       padding: 10px
       font-size: 20px
-      position: absolute
-      left: 0px
-    .namdeData
+    .nameData
+      margin-right: 0px
       padding: 10px
-      width: 200px
+      min-width: 100px
       height: 60px
       box-sizing: border-box
       display: inline-flex
@@ -54,22 +51,11 @@
         width: 100%
         font-size: 20px
     .folderData
-      height: 60px
-      width: 0px
-      display: flex
-      +flex-center()
-      position: relative
+      opacity: 0
+      width: 100%
+      display: block
       #formFolder, .tagList
-        display: none
-        position: absolute 
         height: 30px
-        margin: 10px
         text-transform: capitalize
-      #formFolder
-        top: 0
-        width: 100%
-      .tagList
-        margin-top: 20px
-        .tag
-          bottom: 0
-          padding: 10px
+        display: flex
+        align-items: center

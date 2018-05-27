@@ -1,8 +1,8 @@
 /*
 Error: Undefined mixin 'flex-center'.
-        on line 19 of src/styles/sass/Notes/_Folders.sass, in `flex-center'
-        from line 19 of src/styles/sass/Notes/_Folders.sass
-        from line 1 of src/styles/sass/Notes/_Sidebar.sass
+        on line 19 of /Users/DwaxyWaxy/React-Newtab/src/styles/sass/Notes/_Folders.sass, in `flex-center'
+        from line 19 of /Users/DwaxyWaxy/React-Newtab/src/styles/sass/Notes/_Folders.sass
+        from line 1 of /Users/DwaxyWaxy/React-Newtab/src/styles/sass/Notes/_Sidebar.sass
         from line 2 of src/styles/sass/Notes/Notes.sass
 
 14:   #editor-holder
@@ -10,17 +10,17 @@ Error: Undefined mixin 'flex-center'.
 16:     width: 100%
 17:     height: calc(100vh - 56px)
 18:   #Sidebar
-19:     float: left
-20:     transition: all .3s linear
-21:     .folder-list-holder, .sidebar-top
-22:       transition: all .3s linear
-23:   .SidebarOpen
-24:     width: 20%
+19:     background-color: grey
+20:     float: left
+21:     transition: all .3s linear
+22:     .folder-list-holder, .sidebar-top
+23:       transition: all .3s linear
+24:   .SidebarOpen
 
 Backtrace:
-src/styles/sass/Notes/_Folders.sass:19:in `flex-center'
-src/styles/sass/Notes/_Folders.sass:19
-src/styles/sass/Notes/_Sidebar.sass:1
+/Users/DwaxyWaxy/React-Newtab/src/styles/sass/Notes/_Folders.sass:19:in `flex-center'
+/Users/DwaxyWaxy/React-Newtab/src/styles/sass/Notes/_Folders.sass:19
+/Users/DwaxyWaxy/React-Newtab/src/styles/sass/Notes/_Sidebar.sass:1
 src/styles/sass/Notes/Notes.sass:2
 /Library/Ruby/Gems/2.0.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:352:in `block in visit_mixin'
 /Library/Ruby/Gems/2.0.0/gems/sass-3.5.1/lib/sass/stack.rb:98:in `block in with_mixin'
@@ -137,4 +137,4 @@ src/styles/sass/Notes/Notes.sass:2
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined mixin 'flex-center'.\A         on line 19 of src/styles/sass/Notes/_Folders.sass, in `flex-center'\A         from line 19 of src/styles/sass/Notes/_Folders.sass\A         from line 1 of src/styles/sass/Notes/_Sidebar.sass\A         from line 2 of src/styles/sass/Notes/Notes.sass\A \A 14:   #editor-holder\A 15:     display: inline-block\A 16:     width: 100%\A 17:     height: calc(100vh - 56px)\A 18:   #Sidebar\A 19:     float: left\A 20:     transition: all .3s linear\A 21:     .folder-list-holder, .sidebar-top\A 22:       transition: all .3s linear\A 23:   .SidebarOpen\A 24:     width: 20%"; }
+  content: "Error: Undefined mixin 'flex-center'.\A         on line 19 of /Users/DwaxyWaxy/React-Newtab/src/styles/sass/Notes/_Folders.sass, in `flex-center'\A         from line 19 of /Users/DwaxyWaxy/React-Newtab/src/styles/sass/Notes/_Folders.sass\A         from line 1 of /Users/DwaxyWaxy/React-Newtab/src/styles/sass/Notes/_Sidebar.sass\A         from line 2 of src/styles/sass/Notes/Notes.sass\A \A 14:   #editor-holder\A 15:     display: inline-block\A 16:     width: 100%\A 17:     height: calc(100vh - 56px)\A 18:   #Sidebar\A 19:     background-color: grey\A 20:     float: left\A 21:     transition: all .3s linear\A 22:     .folder-list-holder, .sidebar-top\A 23:       transition: all .3s linear\A 24:   .SidebarOpen"; }

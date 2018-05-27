@@ -14,8 +14,8 @@ export class Folder extends Component {
     this.state = {
       files: this.getFiles(),
       formInput: "",
-      currentFile: null
-    };
+      //currentFile: null
+    };    
   }
   
   handleChange(e) {
@@ -37,11 +37,14 @@ export class Folder extends Component {
     this.setState({
       files: fileList
     });
-    if (!wasDummy) {this.props.sendSelectedData(null, null);}
+    if (!wasDummy) {
+      this.props.sendSelectedData(null, null);
+    }
 
   }
   
-  addDummy() {
+  addDummy(e) {
+    e.stopPropagation();
     let fileList = this.state.files;
     fileList.unshift({
       name: this.state.formInput,
@@ -78,15 +81,22 @@ export class Folder extends Component {
   componentDidUpdate(prevProps) { 
     if ( 
       prevProps.newEditorState !== this.props.newEditorState &&
-      this.state.currentFile !== null && 
-      //this.props.newEditorState !== null &&
+      //this.state.currentFile !== null && 
       this.props.currentFolder.key == this.props.folderData.key
     ){
-      let file = this.state.currentFile;
-      file.fileEditorState = this.props.newEditorState;
-      this.setState({currentFile: file});
-    } else {
-      console.log("current new editor state does not mach any files for folder");
+      //if new state is in for this file
+      //let file = this.state.currentFile;
+      //file.fileEditorState = this.props.newEditorState;
+      //this.props.folderData.fileEditorState = this.props.newEditorState
+      
+      // let updatedFile = this.props.folderData[this.props.currentFileIdx];
+      // console.log(updatedFile)
+      // updatedFile.fileEditorState = this.props.newEditorState;
+      // this.props.sendSelectedData(updatedFile, this.props.currentFileIdx);
+      
+      let updatedFiles = this.state.files
+      updatedFiles[this.props.currentFileIdx].fileEditorState = this.props.newEditorState
+      this.setState({files: updatedFiles})
     }
   }
   
@@ -94,19 +104,18 @@ export class Folder extends Component {
     return open
   }
   
-  selectItem(idx) {
+  selectItem(idx, e) {
+    e.stopPropagation();
     let files = this.state.files
-    let currentFile = this.props.currentFolder.fileList[idx]
-    if (currentFile !== undefined) {
-      files.map((folderData, idx)=> {
-        if (files[idx].open) {
-          files[idx].open = false
-        }
-      });
+    let currentFile = this.props.folderData.fileList[idx]
+    //let currentFile = this.props.currentFolder.fileList[idx]
+    //let currentFile = this.state.currentFile
+    if (currentFile !== undefined && currentFile !== null) {
       this.returnSelected( currentFile.open =! currentFile.open );
-      this.setState({files: files, currentFile: currentFile });
+      this.setState({files: files});
       //this.props.getSelectedData(currentFile, idx);
       this.props.sendSelectedData(this.props.folderData, idx);
+      this.props.closeNotOpenFiles();
       //console.log(currentFile)
     }
   }
@@ -153,14 +162,14 @@ export class Folder extends Component {
                 onClick={this.selectItem.bind(this, idx)}
                 key={idx}
                 >
-                  <NoteContext.Consumer>
-                    {(context)=>{return(
+                  {/*<NoteContext.Consumer>
+                    {(context)=>{return( */}
                       <File
                         delete={this.deleteFile.bind(this, idx)}
                         fileData={file}
                       />
-                    )}}
-                  </NoteContext.Consumer>
+                    {/*})}}
+                  </NoteContext.Consumer> */}
                 </li>
                 )
               ))}
